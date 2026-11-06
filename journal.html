@@ -2,359 +2,408 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#faf7f5">
-<meta name="description" content="Helalune journal: everyday glow, skincare rituals, and beauty care tools.">
-<title>Journal — Helalune</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Helalune Journal — beauty rituals, everyday glow and care tools.">
+  <meta name="theme-color" content="#faf7f5">
+  <title>Journal | Helalune</title>
 
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --cream:#faf7f5;
-  --paper:#fffdfb;
-  --rose:#ead8d3;
-  --brown:#44322e;
-  --muted:#81736f;
-  --line:#e8deda;
-  --gold:#a98569;
-}
-* {
-  box-sizing:border-box;
-}
-html {
-  scroll-behavior:smooth;
-}
-body {
-  margin:0;
-  background:var(--cream);
-  color:var(--brown);
-  font-family:"Plus Jakarta Sans",Arial,sans-serif;
-  font-size:14px;
-  line-height:1.8;
-}
-a {
-  color:inherit;
-  text-decoration:none;
-}
-img {
-  display:block;
-  max-width:100%;
-}
-button {
-  font:inherit;
-}
-h1,h2,h3 {
-  font-family:"Bodoni Moda",Georgia,serif;
-  font-weight:400;
-  line-height:1.15;
-}
-.wrap {
-  max-width:1320px;
-  margin:auto;
-  padding-left:5%;
-  padding-right:5%;
-}
-.eyebrow {
-  font-size:10px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:2.5px;
-  color:var(--gold);
-}
-.skip {
-  position:absolute;
-  left:-9999px;
-}
-.skip:focus {
-  left:15px;
-  top:15px;
-  z-index:999;
-  background:white;
-  padding:12px;
-}
-.promo {
-  text-align:center;
-  background:#e9d5d0;
-  color:#55413c;
-  font-size:10px;
-  letter-spacing:1.2px;
-  padding:11px;
-  margin:0;
-}
-.header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(250,247,245,.97);
-  border-bottom:1px solid var(--line);
-}
-.header-inner {
-  max-width:1500px;
-  margin:auto;
-  min-height:88px;
-  padding:15px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-.logo {
-  display:flex;
-  align-items:center;
-  gap:12px;
-  white-space:nowrap;
-}
-.logo-mark {
-  width:42px;
-  height:42px;
-  display:grid;
-  place-items:center;
-  border:1px solid var(--gold);
-  border-radius:50%;
-  font-family:Georgia,serif;
-  font-size:27px;
-}
-.logo-word {
-  font-family:"Bodoni Moda",serif;
-  font-size:29px;
-  letter-spacing:1px;
-}
-.nav {
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:center;
-  gap:20px;
-}
-.nav a {
-  font-size:11px;
-  font-weight:600;
-}
-.nav a:hover,
-.nav a[aria-current="page"],
-.footer a:hover {
-  color:var(--gold);
-}
-.header-actions {
-  display:flex;
-  gap:16px;
-  align-items:center;
-}
-.header-actions a {
-  font-size:12px;
-}
-.mobile-menu {
-  display:none;
-}
-.page-head {
-  padding-top:95px;
-  padding-bottom:65px;
-  text-align:center;
-}
-.page-head h1 {
-  font-size:clamp(50px,7vw,105px);
-  margin:15px 0;
-  letter-spacing:-1.5px;
-}
-.page-head .intro {
-  color:var(--muted);
-  font-size:14px;
-}
-.journal-list {
-  padding-bottom:100px;
-}
-.journal-list article {
-  display:grid;
-  grid-template-columns:90px 1fr;
-  gap:25px;
-  padding:30px 0;
-  border-top:1px solid var(--line);
-  align-items:start;
-}
-.journal-list article:last-child {
-  border-bottom:1px solid var(--line);
-}
-.journal-list h2 {
-  font-size:clamp(28px,4vw,48px);
-  margin:0 0 12px;
-}
-.journal-list h2 a:hover {
-  color:var(--gold);
-}
-.journal-list article p:last-child {
-  color:var(--muted);
-  margin:0;
-}
-.essay {
-  padding-top:90px;
-  padding-bottom:100px;
-  border-top:1px solid var(--line);
-  scroll-margin-top:110px;
-}
-.essay-inner {
-  max-width:900px;
-  margin:auto;
-}
-.essay h2 {
-  font-size:clamp(40px,6vw,78px);
-  margin:15px 0 40px;
-}
-.essay-image {
-  width:100%;
-  max-height:680px;
-  object-fit:cover;
-  background:var(--rose);
-  margin-bottom:45px;
-}
-.essay p:not(.eyebrow) {
-  max-width:760px;
-  font-size:15px;
-  line-height:2;
-  color:#62544e;
-  margin:0 0 24px;
-}
-.essay p a {
-  color:var(--brown);
-  text-decoration:underline;
-  text-underline-offset:4px;
-}
-.essay p a:hover {
-  color:var(--gold);
-}
-.article-number {
-  color:var(--gold);
-  font-size:11px;
-  letter-spacing:2px;
-  margin-bottom:8px;
-}
-.back-link {
-  display:inline-block;
-  margin-top:20px;
-  border-bottom:1px solid var(--gold);
-  padding-bottom:5px;
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-.footer {
-  background:#382b29;
-  color:#f5eae5;
-  padding-top:75px;
-}
-.foot-grid {
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:35px;
-  padding-bottom:65px;
-}
-.foot-grid h2 {
-  font-size:40px;
-  margin:0 0 18px;
-}
-.foot-grid p {
-  font-size:12px;
-  color:#cdbdb7;
-  max-width:310px;
-}
-.foot-grid .eyebrow {
-  margin-bottom:20px;
-}
-.foot-grid a {
-  display:block;
-  margin-bottom:12px;
-  font-size:12px;
-}
-.legal {
-  border-top:1px solid #62514b;
-  padding-top:25px;
-  padding-bottom:25px;
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  font-size:10px;
-  color:#cdbdb7;
-}
-@media(max-width:1000px) {
-  .nav {
-    gap:12px;
-  }
-  .nav a {
-    font-size:10px;
-  }
-}
-@media(max-width:750px) {
-  .header-inner {
-    min-height:70px;
-    flex-wrap:wrap;
-  }
-  .logo-word {
-    font-size:24px;
-  }
-  .logo-mark {
-    width:36px;
-    height:36px;
-  }
-  .mobile-menu {
-    display:block;
-    background:none;
-    border:0;
-    font-size:24px;
-    cursor:pointer;
-  }
-  .nav {
-    display:none;
-    order:3;
-    width:100%;
-    padding:18px 0;
-    border-top:1px solid var(--line);
-    flex-direction:column;
-    align-items:flex-start;
-  }
-  .nav.open {
-    display:flex;
-  }
-  .page-head {
-    padding-top:65px;
-    padding-bottom:45px;
-  }
-  .journal-list article {
-    grid-template-columns:45px 1fr;
-    gap:15px;
-  }
-  .essay {
-    padding-top:65px;
-    padding-bottom:70px;
-  }
-  .essay-image {
-    margin-bottom:30px;
-  }
-  .foot-grid {
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-@media(max-width:430px) {
-  .foot-grid {
-    gap:25px;
-  }
-  .legal {
-    flex-direction:column;
-  }
-}
-</style>
+  <style>
+    :root {
+      --bg: #faf7f5;
+      --white: #fffdfb;
+      --ink: #42312f;
+      --muted: #887b76;
+      --rose: #ead8d3;
+      --gold: #a5846d;
+      --border: #e8dfda;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    h1, h2, h3 {
+      font-family: "Bodoni Moda", Georgia, serif;
+      font-weight: 400;
+      line-height: 1.16;
+    }
+
+    .wrap {
+      width: min(1200px, 90%);
+      margin: 0 auto;
+    }
+
+    .skip {
+      position: absolute;
+      left: -9999px;
+    }
+
+    .skip:focus {
+      left: 12px;
+      top: 12px;
+      z-index: 999;
+      padding: 12px;
+      background: white;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    .promo {
+      margin: 0;
+      padding: 11px 15px;
+      background: #ead8d3;
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 247, 245, .97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      width: min(1400px, 92%);
+      min-height: 85px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      font-family: Georgia, serif;
+      font-size: 27px;
+    }
+
+    .logo-word {
+      font-family: "Bodoni Moda", Georgia, serif;
+      font-size: 28px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .nav a {
+      font-size: 11px;
+      font-weight: 600;
+      transition: color .2s;
+    }
+
+    .nav a:hover,
+    .nav a[aria-current="page"] {
+      color: var(--gold);
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+    }
+
+    .menu-button {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      font-size: 26px;
+    }
+
+    .hero {
+      padding: 95px 0 70px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 15px 0;
+      font-size: clamp(52px, 8vw, 105px);
+      letter-spacing: -2px;
+    }
+
+    .hero p:last-child {
+      color: var(--muted);
+    }
+
+    .journal-index {
+      padding-bottom: 95px;
+    }
+
+    .index-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 25px;
+      padding: 34px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .index-item:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .index-item h2 {
+      margin: 0 0 10px;
+      font-size: clamp(29px, 4vw, 48px);
+    }
+
+    .index-item h2 a:hover {
+      color: var(--gold);
+    }
+
+    .index-item p:last-child {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .essay {
+      border-top: 1px solid var(--border);
+      padding: 95px 0;
+      scroll-margin-top: 100px;
+    }
+
+    .essay-inner {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .essay h2 {
+      margin: 15px 0 38px;
+      font-size: clamp(42px, 6vw, 75px);
+    }
+
+    .essay-photo {
+      width: 100%;
+      height: auto;
+      max-height: 720px;
+      object-fit: cover;
+      background: var(--rose);
+      margin-bottom: 42px;
+    }
+
+    .essay-text {
+      max-width: 750px;
+    }
+
+    .essay-text p {
+      margin: 0 0 25px;
+      color: #62544f;
+      font-size: 15px;
+      line-height: 2;
+    }
+
+    .essay-text a {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .essay-text a:hover {
+      color: var(--gold);
+    }
+
+    .back-top {
+      display: inline-block;
+      margin-top: 15px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--gold);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      padding-top: 75px;
+      background: #392c29;
+      color: #f8eeea;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 35px;
+      padding-bottom: 65px;
+    }
+
+    .footer h2 {
+      margin: 0 0 20px;
+      font-size: 42px;
+    }
+
+    .footer p {
+      max-width: 300px;
+      color: #cdbeb8;
+      font-size: 12px;
+    }
+
+    .footer a {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 12px;
+    }
+
+    .footer a:hover {
+      color: #e4bca8;
+    }
+
+    .legal {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 25px 0;
+      border-top: 1px solid #66534d;
+      color: #cdbeb8;
+      font-size: 10px;
+    }
+
+    .legal a {
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        gap: 10px;
+      }
+
+      .nav a {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        min-height: 72px;
+        flex-wrap: wrap;
+      }
+
+      .logo-mark {
+        width: 36px;
+        height: 36px;
+      }
+
+      .logo-word {
+        font-size: 24px;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav {
+        display: none;
+        order: 3;
+        width: 100%;
+        padding: 18px 0;
+        border-top: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .nav.open {
+        display: flex;
+      }
+
+      .nav a {
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 65px 0 45px;
+      }
+
+      .index-item {
+        grid-template-columns: 42px 1fr;
+        gap: 15px;
+      }
+
+      .essay {
+        padding: 65px 0;
+      }
+
+      .essay-photo {
+        margin-bottom: 30px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .legal {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <a class="skip" href="#content">Skip to content</a>
 
-<div class="promo">
+<p class="promo">
   Complimentary shipping on orders over $120 · Code HELALUNE10
-</div>
+</p>
 
 <header class="header">
   <div class="header-inner">
@@ -375,16 +424,17 @@ h1,h2,h3 {
       <a href="about.html">Atelier</a>
     </nav>
 
-    <div class="header-actions">
+    <div class="actions">
       <a href="account.html">Account</a>
       <a href="cart.html">Bag</a>
       <button
-        class="mobile-menu"
+        class="menu-button"
         type="button"
         aria-label="Toggle menu"
         aria-controls="mainNav"
         aria-expanded="false"
-        onclick="toggleMenu(this)">☰</button>
+        onclick="toggleMenu(this)"
+      >☰</button>
     </div>
 
   </div>
@@ -392,29 +442,25 @@ h1,h2,h3 {
 
 <main id="content">
 
-  <section class="page-head wrap" id="top">
+  <section class="hero wrap" id="top">
     <p class="eyebrow">The Helalune Journal</p>
     <h1>Notes from the edit.</h1>
-    <p class="intro">
-      Rituals, beauty and quiet moments of everyday care.
-    </p>
+    <p>Rituals, beauty and quiet moments of everyday care.</p>
   </section>
 
-  <section class="journal-list wrap" aria-label="Journal articles">
+  <section class="journal-index wrap" aria-label="Journal articles">
 
-    <article>
+    <article class="index-item">
       <p class="eyebrow">03</p>
       <div>
         <h2>
-          <a href="#everyday-essay">
-            Your everyday glow, simplified
-          </a>
+          <a href="#everyday-essay">Your everyday glow, simplified</a>
         </h2>
         <p>Why the morning routine stops at three steps.</p>
       </div>
     </article>
 
-    <article>
+    <article class="index-item">
       <p class="eyebrow">06</p>
       <div>
         <h2>
@@ -424,7 +470,7 @@ h1,h2,h3 {
       </div>
     </article>
 
-    <article>
+    <article class="index-item">
       <p class="eyebrow">02</p>
       <div>
         <h2>
@@ -436,129 +482,133 @@ h1,h2,h3 {
 
   </section>
 
-  <article class="essay wrap" id="everyday-essay">
-    <div class="essay-inner">
+  <article class="essay" id="everyday-essay">
+    <div class="wrap">
+      <div class="essay-inner">
 
-      <p class="eyebrow">Essay · 03</p>
-      <h2>Your everyday glow, simplified.</h2>
+        <p class="eyebrow">Essay · 03</p>
+        <h2>Your everyday glow, simplified.</h2>
 
-      <img
-        class="essay-image"
-        src="everyday.png"
-        alt="Everyday essentials"
-        width="736"
-        height="1008"
-        loading="lazy"
-        style="object-position:50% 40%">
+        <img
+          class="essay-photo"
+          src="everyday.png"
+          alt="Everyday essentials"
+          width="736"
+          height="1008"
+          loading="lazy"
+        >
 
-      <p>
-        A long routine is a way of postponing the day.
-        Helalune keeps the glow to a cleanse, a serum,
-        and a cream. Anything past that is color,
-        and color is optional.
-      </p>
+        <div class="essay-text">
+          <p>
+            A long routine is a way of postponing the day.
+            Helalune keeps the glow to a cleanse, a serum,
+            and a cream. Anything past that is color,
+            and color is optional.
+          </p>
 
-      <p>
-        The basket in the photograph is a reminder,
-        not a dare: the pieces should be able to leave
-        the house with you. If a bottle needs a manual,
-        it is not in this edit.
-      </p>
+          <p>
+            The basket in the photograph is a reminder,
+            not a dare: the pieces should be able to leave
+            the house with you. If a bottle needs a manual,
+            it is not in this edit.
+          </p>
 
-      <p>
-        Start with
-        <a href="product-foaming-cleanse.html">
-          Everyday Foaming Cleanse
-        </a>
-        on damp skin. Follow with
-        <a href="product-dew-serum.html">
-          Hyaluronic Dew Serum
-        </a>
-        while the face is still wet. Seal it.
-      </p>
+          <p>
+            Start with
+            <a href="product-foaming-cleanse.html">Everyday Foaming Cleanse</a>
+            on damp skin. Follow with
+            <a href="product-dew-serum.html">Hyaluronic Dew Serum</a>
+            while the face is still wet. Seal it.
+          </p>
+        </div>
 
-      <a class="back-link" href="#top">Back to Journal ↑</a>
+        <a class="back-top" href="#top">Back to Journal ↑</a>
 
+      </div>
     </div>
   </article>
 
-  <article class="essay wrap" id="glow-essay">
-    <div class="essay-inner">
+  <article class="essay" id="glow-essay">
+    <div class="wrap">
+      <div class="essay-inner">
 
-      <p class="eyebrow">Essay · 06</p>
-      <h2>Get your glow on.</h2>
+        <p class="eyebrow">Essay · 06</p>
+        <h2>Get your glow on.</h2>
 
-      <img
-        class="essay-image"
-        src="glow.png"
-        alt="The glow ritual"
-        width="736"
-        height="736"
-        loading="lazy"
-        style="object-position:50% 40%">
+        <img
+          class="essay-photo"
+          src="glow.png"
+          alt="The glow ritual"
+          width="736"
+          height="736"
+          loading="lazy"
+        >
 
-      <p>
-        Glow, here, is water and light, not glitter.
-        The rose packaging is only the outside.
-        Inside, the formulas are plain: a gentle foam,
-        hyaluronic acid with a quiet vitamin C,
-        and a cream that does not fight the foundation.
-      </p>
+        <div class="essay-text">
+          <p>
+            Glow, here, is water and light, not glitter.
+            The rose packaging is only the outside.
+            Inside, the formulas are plain: a gentle foam,
+            hyaluronic acid with a quiet vitamin C,
+            and a cream that does not fight the foundation.
+          </p>
 
-      <p>
-        Use them in order. Serum on dry skin pills.
-        Cream before serum slides off.
-        The ritual is the sequence.
-      </p>
+          <p>
+            Use them in order. Serum on dry skin pills.
+            Cream before serum slides off.
+            The ritual is the sequence.
+          </p>
+        </div>
 
-      <a class="back-link" href="#top">Back to Journal ↑</a>
+        <a class="back-top" href="#top">Back to Journal ↑</a>
 
+      </div>
     </div>
   </article>
 
-  <article class="essay wrap" id="tools-essay">
-    <div class="essay-inner">
+  <article class="essay" id="tools-essay">
+    <div class="wrap">
+      <div class="essay-inner">
 
-      <p class="eyebrow">Essay · 02</p>
-      <h2>Care, in the hand.</h2>
+        <p class="eyebrow">Essay · 02</p>
+        <h2>Care, in the hand.</h2>
 
-      <img
-        class="essay-image"
-        src="tools.png"
-        alt="Beauty care tools"
-        width="736"
-        height="1104"
-        loading="lazy"
-        style="object-position:50% 55%">
+        <img
+          class="essay-photo"
+          src="tools.png"
+          alt="Beauty care tools"
+          width="736"
+          height="1104"
+          loading="lazy"
+        >
 
-      <p>
-        Foundation changes with the tool.
-        Fingers leave it richer. The
-        <a href="product-cloud-sponge.html">
-          Cloud Sponge
-        </a>,
-        used damp, makes Luminous Veil look like skin.
-        The
-        <a href="product-powder-brush.html">
-          powder brush
-        </a>
-        is for blush only after the complexion has settled.
-      </p>
+        <div class="essay-text">
+          <p>
+            Foundation changes with the tool.
+            Fingers leave it richer. The
+            <a href="product-cloud-sponge.html">Cloud Sponge</a>,
+            used damp, makes Luminous Veil look like skin.
+            The
+            <a href="product-powder-brush.html">powder brush</a>
+            is for blush only after the complexion has settled.
+          </p>
 
-      <p>
-        Wash the brush. Replace the sponge when
-        the point goes soft. Tools are not decorations.
-      </p>
+          <p>
+            Wash the brush. Replace the sponge when
+            the point goes soft. Tools are not decorations.
+          </p>
+        </div>
 
-      <a class="back-link" href="#top">Back to Journal ↑</a>
+        <a class="back-top" href="#top">Back to Journal ↑</a>
 
+      </div>
     </div>
   </article>
 
 </main>
 
 <footer class="footer">
-  <div class="wrap foot-grid">
+  <div class="wrap footer-grid">
 
     <div>
       <h2>Helalune</h2>
@@ -588,41 +638,35 @@ h1,h2,h3 {
     <div>
       <p class="eyebrow">Write</p>
       <a href="contact.html">Contact</a>
-      <a href="mailto:hello@helalune.com">
-        hello@helalune.com
-      </a>
+      <a href="mailto:hello@helalune.com">hello@helalune.com</a>
     </div>
 
   </div>
 
   <div class="wrap legal">
     <span>
-      © 2026 Helalune.
-      Imitation jewelry is gold-tone, not fine gold.
+      © 2026 Helalune. Imitation jewelry is gold-tone, not fine gold.
     </span>
     <a href="privacy.html">Privacy</a>
   </div>
 </footer>
 
 <script>
-function toggleMenu(button) {
-  const nav = document.getElementById("mainNav");
-  const isOpen = nav.classList.toggle("open");
-
-  button.setAttribute("aria-expanded", String(isOpen));
-}
-
-document.querySelectorAll("#mainNav a").forEach(link => {
-  link.addEventListener("click", () => {
+  function toggleMenu(button) {
     const nav = document.getElementById("mainNav");
-    nav.classList.remove("open");
+    const isOpen = nav.classList.toggle("open");
+    button.setAttribute("aria-expanded", String(isOpen));
+  }
 
-    const button = document.querySelector(".mobile-menu");
-    if (button) {
-      button.setAttribute("aria-expanded", "false");
-    }
+  document.querySelectorAll("#mainNav a").forEach(function(link) {
+    link.addEventListener("click", function() {
+      document.getElementById("mainNav").classList.remove("open");
+      const button = document.querySelector(".menu-button");
+      if (button) {
+        button.setAttribute("aria-expanded", "false");
+      }
+    });
   });
-});
 </script>
 
 </body>
