@@ -1,179 +1,558 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Luminous Veil Foundation — Helalune</title>
-  <meta name="description" content="A sheer veil that evens tone and leaves skin looking like skin, only rested.">
-  <meta name="theme-color" content="#faf7f5">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#faf7f5">
+<meta name="description" content="A sheer veil that evens tone and leaves skin looking like skin, only rested.">
+<title>Luminous Veil Foundation — Helalune</title>
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:#faf7f5;
+  --paper:#fffdfb;
+  --rose:#ead8d3;
+  --pink:#f4e9e6;
+  --brown:#44322e;
+  --muted:#81736f;
+  --line:#e8deda;
+  --gold:#a98569;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  background:var(--cream);
+  color:var(--brown);
+  font-family:"Plus Jakarta Sans",Arial,sans-serif;
+  font-size:14px;
+  line-height:1.7;
+}
+a {color:inherit;text-decoration:none}
+img {display:block;width:100%;object-fit:cover}
+button {font:inherit}
+h1,h2,h3 {
+  font-family:"Bodoni Moda",Georgia,serif;
+  font-weight:400;
+  line-height:1.12;
+}
+h1 {font-size:clamp(44px,5vw,76px);margin:12px 0 20px}
+h2 {font-size:clamp(32px,4vw,54px)}
+h3 {font-size:25px;margin:10px 0}
+p {margin:0 0 18px}
+.wrap {max-width:1400px;margin:auto;padding-left:5%;padding-right:5%}
+.eyebrow {
+  font-size:10px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:2.5px;
+  color:var(--gold);
+}
+.lede {
+  color:var(--muted);
+  max-width:520px;
+  font-size:15px;
+  line-height:1.9;
+}
+.promo {
+  text-align:center;
+  background:#e9d5d0;
+  color:#55413c;
+  font-size:10px;
+  letter-spacing:1.3px;
+  padding:11px 12px;
+  margin:0;
+}
+.header {
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(250,247,245,.97);
+  border-bottom:1px solid var(--line);
+}
+.header-inner {
+  max-width:1500px;
+  margin:auto;
+  min-height:88px;
+  padding:15px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.logo {display:flex;align-items:center;gap:12px;white-space:nowrap}
+.logo-mark {
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  font-family:Georgia,serif;
+  font-size:27px;
+}
+.logo-word {
+  font-family:"Bodoni Moda",serif;
+  font-size:29px;
+  letter-spacing:1px;
+}
+.nav {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+}
+.nav a {
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+.nav a:hover,.footer a:hover {color:var(--gold)}
+.header-actions {display:flex;gap:14px;align-items:center}
+.header-actions a {font-size:12px}
+.mobile-menu {display:none}
+.pdp {
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:7%;
+  padding-top:75px;
+  padding-bottom:100px;
+  align-items:start;
+}
+.gallery {min-width:0}
+.frame {
+  background:#eadbd5;
+  overflow:hidden;
+}
+.frame img {
+  aspect-ratio:3/4;
+  object-fit:cover;
+}
+.thumbs {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:14px;
+}
+.thumb {
+  padding:0;
+  background:none;
+  border:2px solid transparent;
+  cursor:pointer;
+}
+.thumb img {aspect-ratio:1/1;object-fit:cover}
+.thumb.active {border-color:var(--gold)}
+.buy {padding-top:20px}
+.crumb {font-size:11px;color:var(--muted);margin-bottom:35px}
+.crumb a:hover {color:var(--gold)}
+.product-price {
+  font-size:18px;
+  margin-bottom:25px;
+}
+.shade-label {margin-top:30px;margin-bottom:8px}
+.shade-name {font-size:13px;margin-bottom:15px}
+.swatches {display:flex;gap:12px;margin-bottom:35px}
+.swatch {
+  width:37px;
+  height:37px;
+  padding:4px;
+  border:1px solid transparent;
+  border-radius:50%;
+  background:transparent;
+  cursor:pointer;
+}
+.swatch span {
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:var(--sw);
+  border:1px solid #d4c6c0;
+}
+.swatch.active {border-color:var(--brown)}
+.buy-actions {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:35px;
+}
+.btn {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  min-height:49px;
+  padding:13px 20px;
+  background:var(--brown);
+  color:white;
+  border:1px solid var(--brown);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1.4px;
+  cursor:pointer;
+  transition:.2s;
+}
+.btn:hover {background:#76574c;border-color:#76574c}
+.btn-ghost {background:transparent;color:var(--brown)}
+.btn-ghost:hover {color:white}
+details {border-top:1px solid var(--line)}
+details:last-child {border-bottom:1px solid var(--line)}
+summary {
+  padding:21px 0;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:1.3px;
+}
+details p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.9;
+  padding-bottom:20px;
+}
+.related {
+  padding-top:35px;
+  padding-bottom:100px;
+  border-top:1px solid var(--line);
+}
+.related h2 {margin-bottom:35px}
+.rail {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:25px;
+  max-width:920px;
+}
+.card {min-width:0}
+.media {position:relative;background:#eadbd5;overflow:hidden}
+.media img {aspect-ratio:3/4;transition:transform .3s}
+.card:hover img {transform:scale(1.035)}
+.quick {
+  position:absolute;
+  bottom:12px;
+  left:12px;
+  right:12px;
+  background:rgba(255,253,251,.94);
+  text-align:center;
+  padding:12px;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1.4px;
+}
+.meta {padding:20px 3px}
+.meta h3 {margin:5px 0;font-size:25px}
+.price {font-size:13px;color:var(--muted)}
+.footer {
+  background:#382b29;
+  color:#f5eae5;
+  padding-top:75px;
+}
+.foot-grid {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:35px;
+  padding-bottom:65px;
+}
+.foot-grid h2 {font-size:40px;margin:0 0 18px}
+.foot-grid p {font-size:12px;color:#cdbdb7;max-width:310px}
+.foot-grid .eyebrow {margin-bottom:20px}
+.foot-grid a {display:block;margin:0 0 12px;font-size:12px}
+.legal {
+  border-top:1px solid #62514b;
+  padding-top:25px;
+  padding-bottom:25px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  font-size:10px;
+  color:#cdbdb7;
+}
+@media(max-width:1000px) {
+  .nav {gap:12px}
+  .nav a {font-size:10px}
+}
+@media(max-width:750px) {
+  .header-inner {min-height:70px;flex-wrap:wrap}
+  .logo-word {font-size:24px}
+  .logo-mark {width:36px;height:36px}
+  .mobile-menu {
+    display:block;
+    background:none;
+    border:0;
+    font-size:24px;
+    cursor:pointer;
+  }
+  .nav {
+    display:none;
+    order:3;
+    width:100%;
+    padding:18px 0;
+    border-top:1px solid var(--line);
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .nav.open {display:flex}
+  .pdp {grid-template-columns:1fr;gap:30px;padding-top:35px}
+  .buy {padding-top:0}
+  .crumb {margin-bottom:20px}
+  .foot-grid {grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:430px) {
+  .buy-actions {grid-template-columns:1fr}
+  .rail {gap:14px}
+  .meta h3 {font-size:21px}
+  .quick {left:7px;right:7px;bottom:7px;font-size:9px}
+  .legal {flex-direction:column}
+}
+</style>
 </head>
+
 <body>
-  <a class="skip" href="#content">Skip to content</a>
-  <input class="state" type="radio" name="panel" id="panel-none" checked>
-  <input class="state" type="radio" name="panel" id="panel-nav">
-  <input class="state" type="radio" name="panel" id="panel-search">
-  <input class="state" type="radio" name="panel" id="panel-bag">
-  <p class="promo">Complimentary shipping on orders over $120 · Code HELALUNE10</p>
-  <header class="header">
-    <a class="logo" href="index.html"><span class="logo-mark">H</span><span class="logo-word">Helalune</span></a>
-    <nav class="nav-desktop" aria-label="Primary"><a href="index.html">Home</a>
-<a href="shop.html" aria-current="page">Shop</a>
-<a href="shop.html#view-makeup">Makeup</a>
-<a href="shop.html#view-skincare">Skincare</a>
-<a href="shop.html#view-jewelry">Jewelry</a>
-<a href="shop.html#view-tools">Tools</a>
-<a href="journal.html">Journal</a>
-<a href="about.html">Atelier</a></nav>
+
+<div class="promo">
+Complimentary shipping on orders over $120 · Code HELALUNE10
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">H</span>
+      <span class="logo-word">Helalune</span>
+    </a>
+
+    <nav class="nav" id="mainNav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="shop.html#view-makeup">Makeup</a>
+      <a href="shop.html#view-skincare">Skincare</a>
+      <a href="shop.html#view-jewelry">Jewelry</a>
+      <a href="shop.html#view-tools">Tools</a>
+      <a href="journal.html">Journal</a>
+      <a href="about.html">Atelier</a>
+    </nav>
+
     <div class="header-actions">
-      <label class="icon-btn menu-btn" for="panel-nav" aria-label="Open menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></label>
-      <label class="icon-btn" for="panel-search" aria-label="Open index"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M16 16l4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></label>
-      <a class="icon-btn" href="account.html" aria-label="Account"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5 19c1.5-3 3.8-4.5 7-4.5S17.5 16 19 19" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
-      <label class="icon-btn" for="panel-bag" aria-label="Open bag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8h11l-.8 12H7.3L6.5 8z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M9 8V7a3 3 0 0 1 6 0v1" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></label>
-    </div>
-  </header>
-  <div class="panel panel-nav">
-    <div class="panel-top"><p class="eyebrow">Menu</p><label class="link" for="panel-none">Close</label></div>
-    <ul><li><a href="index.html">Home</a></li>
-<li><a href="shop.html" aria-current="page">Shop</a></li>
-<li><a href="shop.html#view-makeup">Makeup</a></li>
-<li><a href="shop.html#view-skincare">Skincare</a></li>
-<li><a href="shop.html#view-jewelry">Jewelry</a></li>
-<li><a href="shop.html#view-tools">Tools</a></li>
-<li><a href="journal.html">Journal</a></li>
-<li><a href="about.html">Atelier</a></li></ul>
-  </div>
-  <div class="panel panel-search">
-    <div class="wrap">
-      <div class="panel-top"><p class="eyebrow">Index</p><label class="link" for="panel-none">Close</label></div>
-      <h2>Find a piece.</h2>
-      <div class="index-grid"><div><p class="eyebrow">Makeup</p><a href="product-luminous-veil.html">Luminous Veil Foundation</a>
-<a href="product-nude-couture-lip.html">Nude Couture Lipstick</a>
-<a href="product-atelier-blush.html">Atelier Blush</a></div>
-<div><p class="eyebrow">Skincare</p><a href="product-dew-serum.html">Hyaluronic Dew Serum</a>
-<a href="product-foaming-cleanse.html">Everyday Foaming Cleanse</a>
-<a href="product-moisture-veil.html">Day &amp; Night Moisture</a></div>
-<div><p class="eyebrow">Tools</p><a href="product-powder-brush.html">Atelier Powder Brush</a>
-<a href="product-cloud-sponge.html">Cloud Sponge</a></div>
-<div><p class="eyebrow">Jewelry</p><a href="product-gilded-hoops.html">Gilded Hoop Earrings</a>
-<a href="product-champagne-cuff.html">Champagne Cuff</a></div></div>
+      <a href="account.html">Account</a>
+      <a href="cart.html">Bag</a>
+      <button class="mobile-menu" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
     </div>
   </div>
-  <aside class="panel panel-bag">
-    <div class="panel-top"><p class="eyebrow">Bag</p><label class="link" for="panel-none">Close</label></div>
-    <h2>The edit, ticked by you.</h2>
-    <p class="lede">Pieces stay on the bag page. Tick what you want, apply HELALUNE10, and the due amount changes before you place the order.</p>
-    <div class="bag-list">
-      <p><a href="cart.html">Open the bag</a></p>
-      <p><a href="cart.html#checkout">Continue to delivery</a></p>
-      <p><a href="shop.html">Return to the edit</a></p>
-    </div>
-  </aside>
-  <label class="scrim" for="panel-none" aria-label="Close"></label>
-  <main id="content">
-    
+</header>
+
+<main id="content">
+
 <div class="wrap pdp">
-  <input class="state" type="radio" name="gal" id="g1" checked>
-  <input class="state" type="radio" name="gal" id="g2">
-  <input class="state" type="radio" name="gal" id="g3">
-  <input class="state" type="radio" name="shade" id="s1" checked>
-<input class="state" type="radio" name="shade" id="s2">
-<input class="state" type="radio" name="shade" id="s3">
-<input class="state" type="radio" name="shade" id="s4">
+
   <div class="gallery">
-    <div class="frame f1"><img src="assets/luxury.png" alt="Luminous Veil Foundation" width="736" height="1104" style="object-position:50% 78%"></div><div class="frame f2"><img src="assets/luxury.png" alt="Luminous Veil Foundation" width="736" height="1104" style="object-position:22% 70%"></div><div class="frame f3"><img src="assets/luxury.png" alt="Luminous Veil Foundation" width="736" height="1104" style="object-position:78% 62%"></div>
-    <div class="thumbs"><label for="g1"><img src="assets/luxury.png" alt="" width="736" height="1104" style="object-position:50% 78%"></label><label for="g2"><img src="assets/luxury.png" alt="" width="736" height="1104" style="object-position:22% 70%"></label><label for="g3"><img src="assets/luxury.png" alt="" width="736" height="1104" style="object-position:78% 62%"></label></div>
+    <div class="frame">
+      <img id="mainProductImage" src="luxury.png" alt="Luminous Veil Foundation" style="object-position:50% 78%">
+    </div>
+
+    <div class="thumbs">
+      <button class="thumb active" type="button" data-position="50% 78%" aria-label="View first image">
+        <img src="luxury.png" alt="Foundation view one" style="object-position:50% 78%">
+      </button>
+      <button class="thumb" type="button" data-position="22% 70%" aria-label="View second image">
+        <img src="luxury.png" alt="Foundation view two" style="object-position:22% 70%">
+      </button>
+      <button class="thumb" type="button" data-position="78% 62%" aria-label="View third image">
+        <img src="luxury.png" alt="Foundation view three" style="object-position:78% 62%">
+      </button>
+    </div>
   </div>
+
   <div class="buy">
-    <p class="crumb"><a href="shop.html">Shop</a> / <a href="shop.html#view-makeup">Makeup</a></p>
+    <p class="crumb">
+      <a href="shop.html">Shop</a> /
+      <a href="shop.html#view-makeup">Makeup</a>
+    </p>
+
     <p class="eyebrow">Complexion</p>
     <h1>Luminous Veil Foundation</h1>
-    <p class="price">$54 · 30 ml</p>
-    <p class="lede">A sheer veil that evens tone and leaves skin looking like skin, only rested.</p>
-    <p class="eyebrow">Shade</p><p class="shade-name n1">Porcelain</p><p class="shade-name n2">Sand</p><p class="shade-name n3">Honey</p><p class="shade-name n4">Amber</p><div class="swatches"><label for="s1" title="Porcelain"><i style="--sw:#f3e2d4"></i></label><label for="s2" title="Sand"><i style="--sw:#e3c2a2"></i></label><label for="s3" title="Honey"><i style="--sw:#c89060"></i></label><label for="s4" title="Amber"><i style="--sw:#8a5638"></i></label></div>
+    <p class="product-price">$54 · 30 ml</p>
+
+    <p class="lede">
+      A sheer veil that evens tone and leaves
+      skin looking like skin, only rested.
+    </p>
+
+    <p class="eyebrow shade-label">Shade</p>
+    <p class="shade-name" id="selectedShade">Porcelain</p>
+
+    <div class="swatches" role="group" aria-label="Select foundation shade">
+      <button class="swatch active" type="button" data-shade="Porcelain" aria-label="Porcelain shade" aria-pressed="true">
+        <span style="--sw:#f3e2d4"></span>
+      </button>
+      <button class="swatch" type="button" data-shade="Sand" aria-label="Sand shade" aria-pressed="false">
+        <span style="--sw:#e3c2a2"></span>
+      </button>
+      <button class="swatch" type="button" data-shade="Honey" aria-label="Honey shade" aria-pressed="false">
+        <span style="--sw:#c89060"></span>
+      </button>
+      <button class="swatch" type="button" data-shade="Amber" aria-label="Amber shade" aria-pressed="false">
+        <span style="--sw:#8a5638"></span>
+      </button>
+    </div>
+
     <div class="buy-actions">
-      <a class="btn" href="cart.html#piece-luminous-veil">Add to bag</a>
+      <a class="btn" href="cart.html#piece-luminous-veil">Add to Bag</a>
       <a class="btn btn-ghost" href="cart.html#checkout">Checkout</a>
     </div>
+
     <details open>
       <summary>Story</summary>
-      <p>Pressed in a warm nude light, Luminous Veil sits close to the skin. It softens redness and shadows without a mask, then wears through a long day or a long evening.</p>
+      <p>
+        Pressed in a warm nude light, Luminous Veil sits
+        close to the skin. It softens redness and shadows
+        without a mask, then wears through a long day
+        or a long evening.
+      </p>
     </details>
+
     <details>
-      <summary>How to use</summary>
-      <p>Warm a small amount between the fingers. Press it over moisturised skin from the centre of the face outward. Build only where the light needs help.</p>
+      <summary>How to Use</summary>
+      <p>
+        Warm a small amount between the fingers.
+        Press it over moisturised skin from the centre
+        of the face outward. Build only where the light
+        needs help.
+      </p>
     </details>
+
     <details>
       <summary>Composition</summary>
-      <p>Aqua, squalane, glycerin, caprylic/capric triglyceride, silica, titanium dioxide, iron oxides, tocopherol.</p>
+      <p>
+        Aqua, squalane, glycerin, caprylic/capric
+        triglyceride, silica, titanium dioxide,
+        iron oxides, tocopherol.
+      </p>
     </details>
+
     <details>
-      <summary>Shipping and returns</summary>
-      <p>Complimentary shipping from $120. Under that, delivery is $8. Pay when the order arrives. Unworn pieces can return within 14 days. See <a href="shipping.html">shipping</a> and <a href="returns.html">returns</a>.</p>
+      <summary>Shipping and Returns</summary>
+      <p>
+        Complimentary shipping from $120.
+        Under that, delivery is $8.
+        Pay when the order arrives.
+        Unworn pieces can return within 14 days.
+        See <a href="shipping.html">shipping</a>
+        and <a href="returns.html">returns</a>.
+      </p>
     </details>
   </div>
 </div>
+
 <section class="wrap related">
-  <h2>Worn with</h2>
-  <div class="rail"><article class="card makeup">
-  <div class="media">
-    <a href="product-nude-couture-lip.html"><img src="assets/storefront.png" alt="Nude Couture Lipstick" width="736" height="1104" style="object-position:18% 28%"></a>
-    <a class="quick" href="cart.html#piece-nude-couture-lip">Add to bag</a>
+  <h2>Worn With</h2>
+
+  <div class="rail">
+    <article class="card">
+      <div class="media">
+        <a href="product-nude-couture-lip.html">
+          <img src="storefront.png" alt="Nude Couture Lipstick" style="object-position:18% 28%">
+        </a>
+        <a class="quick" href="cart.html#piece-nude-couture-lip">Add to Bag</a>
+      </div>
+      <div class="meta">
+        <p class="eyebrow">Color</p>
+        <h3><a href="product-nude-couture-lip.html">Nude Couture Lipstick</a></h3>
+        <p class="price">$32</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="media">
+        <a href="product-atelier-blush.html">
+          <img src="storefront.png" alt="Atelier Blush" style="object-position:48% 62%">
+        </a>
+        <a class="quick" href="cart.html#piece-atelier-blush">Add to Bag</a>
+      </div>
+      <div class="meta">
+        <p class="eyebrow">Color</p>
+        <h3><a href="product-atelier-blush.html">Atelier Blush</a></h3>
+        <p class="price">$38</p>
+      </div>
+    </article>
   </div>
-  <div class="meta">
-    <p class="eyebrow">Color</p>
-    <h3><a href="product-nude-couture-lip.html">Nude Couture Lipstick</a></h3>
-    <p class="price">$32</p>
-  </div>
-</article><article class="card makeup">
-  <div class="media">
-    <a href="product-atelier-blush.html"><img src="assets/storefront.png" alt="Atelier Blush" width="736" height="1104" style="object-position:48% 62%"></a>
-    <a class="quick" href="cart.html#piece-atelier-blush">Add to bag</a>
-  </div>
-  <div class="meta">
-    <p class="eyebrow">Color</p>
-    <h3><a href="product-atelier-blush.html">Atelier Blush</a></h3>
-    <p class="price">$38</p>
-  </div>
-</article></div>
 </section>
 
-  </main>
-  <footer class="footer">
-    <div class="wrap foot-grid">
-      <div>
-        <h2>Helalune</h2>
-        <p>Haute nude couture for complexion, care, tools, and imitation jewelry. Edited in quiet light.</p>
-      </div>
-      <div>
-        <p class="eyebrow">Maison</p>
-        <a href="about.html">The atelier</a>
-        <a href="journal.html">Journal</a>
-        <a href="account.html">Account</a>
-        <a href="contact.html">Write to us</a>
-      </div>
-      <div>
-        <p class="eyebrow">Care</p>
-        <a href="shipping.html">Shipping</a>
-        <a href="returns.html">Returns</a>
-        <a href="faq.html">Questions</a>
-        <a href="cart.html">Your bag</a>
-      </div>
-      <div>
-        <p class="eyebrow">Write</p>
-        <a href="contact.html">Contact</a>
-        <a href="mailto:hello@helalune.com">hello@helalune.com</a>
-      </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot-grid">
+    <div>
+      <h2>Helalune</h2>
+      <p>
+        Haute nude couture for complexion, care, tools,
+        and imitation jewelry. Edited in quiet light.
+      </p>
     </div>
-    <div class="wrap legal">
-      <span>© 2026 Helalune. Imitation jewelry is gold-tone, not fine gold.</span>
-      <a href="privacy.html">Privacy</a>
+    <div>
+      <p class="eyebrow">Maison</p>
+      <a href="about.html">The Atelier</a>
+      <a href="journal.html">Journal</a>
+      <a href="account.html">Account</a>
+      <a href="contact.html">Write to Us</a>
     </div>
-  </footer>
+    <div>
+      <p class="eyebrow">Care</p>
+      <a href="shipping.html">Shipping</a>
+      <a href="returns.html">Returns</a>
+      <a href="faq.html">Questions</a>
+      <a href="cart.html">Your Bag</a>
+    </div>
+    <div>
+      <p class="eyebrow">Write</p>
+      <a href="contact.html">Contact</a>
+      <a href="mailto:hello@helalune.com">hello@helalune.com</a>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <span>© 2026 Helalune. Imitation jewelry is gold-tone, not fine gold.</span>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(button) {
+  const nav = document.getElementById("mainNav");
+  const isOpen = nav.classList.toggle("open");
+  button.setAttribute("aria-expanded", String(isOpen));
+}
+
+document.querySelectorAll(".thumb").forEach(button => {
+  button.addEventListener("click", function() {
+    document.getElementById("mainProductImage").style.objectPosition =
+      this.dataset.position;
+
+    document.querySelectorAll(".thumb").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    this.classList.add("active");
+  });
+});
+
+document.querySelectorAll(".swatch").forEach(button => {
+  button.addEventListener("click", function() {
+    document.getElementById("selectedShade").textContent =
+      this.dataset.shade;
+
+    document.querySelectorAll(".swatch").forEach(item => {
+      item.classList.remove("active");
+      item.setAttribute("aria-pressed", "false");
+    });
+
+    this.classList.add("active");
+    this.setAttribute("aria-pressed", "true");
+  });
+});
+</script>
+
 </body>
 </html>
